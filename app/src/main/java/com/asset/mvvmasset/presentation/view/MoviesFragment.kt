@@ -1,15 +1,18 @@
 package com.asset.mvvmasset.presentation.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.asset.mvvmasset.R
+import com.asset.mvvmasset.data.util.Resource
 import com.asset.mvvmasset.databinding.FragmentMoviesBinding
 import com.asset.mvvmasset.presentation.viewmodel.MoviesViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -43,8 +46,29 @@ class MoviesFragment : Fragment() {
     }
 
     private fun subscribeObservers() {
-        moviesViewModel.popularMovies.observe(viewLifecycleOwner, Observer {
-            
+        moviesViewModel.popularMovies.observe(viewLifecycleOwner, Observer { moviesResponse ->
+            when (moviesResponse) {
+                is Resource.Success -> {
+                    hideProgressBar()
+                    Log.d("Response: ", moviesResponse.data?.toString() ?: "")
+                }
+                is Resource.Loading -> {
+                   showProgressBar()
+                }
+                is Resource.Error -> {
+                    hideProgressBar()
+                    Toast.makeText(activity, moviesResponse.message ?: "", Toast.LENGTH_LONG).show()
+                }
+            }
+
         })
+    }
+
+    private fun showProgressBar() {
+        moviesBinding.progressBar.visibility = View.VISIBLE
+    }
+
+    private fun hideProgressBar() {
+        moviesBinding.progressBar.visibility = View.GONE
     }
 }

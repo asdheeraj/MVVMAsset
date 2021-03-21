@@ -15,9 +15,14 @@ import javax.inject.Inject
 class MoviesViewModel @Inject constructor(
     private val getPopularMoviesUseCase: GetPopularMoviesUseCase
 ) : ViewModel() {
+
+    init {
+        getPopularMovies()
+    }
+
     val popularMovies: MutableLiveData<Resource<MoviesResponse>> = MutableLiveData()
 
-    fun getPopularMovies(
+    private fun getPopularMovies(
         language: String? = null,
         page: Int? = null,
         region: String? = null
