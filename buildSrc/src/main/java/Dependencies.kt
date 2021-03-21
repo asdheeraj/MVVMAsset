@@ -66,7 +66,7 @@ object Dependencies {
 
     // region Network layer
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
-    const val gson = "com.google.code.gson:gson:$${Versions.gson}"
+    const val gson = "com.google.code.gson:gson:${Versions.gson}"
     const val gson_converter = "com.squareup.retrofit2:converter-gson:${Versions.gson_converter}"
     const val okhttp3_interceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp_interceptor}"
     // endregion Network layer
@@ -82,8 +82,8 @@ object Dependencies {
     // endregion Local Database
 
     // region DependencyInjection
-    const val hilt_version =  "com.google.dagger:hilt-android:$${Versions.hilt}"
-    const val hilt_compiler = "com.google.dagger:hilt-android-compiler:$${Versions.hilt}"
+    const val hilt_version =  "com.google.dagger:hilt-android:${Versions.hilt}"
+    const val hilt_compiler = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
     const val hilt_viewmodels = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hilt_viewmodels}"
     const val hilt_viewmodels_compiler = "androidx.hilt:hilt-compiler:${Versions.hilt_viewmodels_compiler}"
 

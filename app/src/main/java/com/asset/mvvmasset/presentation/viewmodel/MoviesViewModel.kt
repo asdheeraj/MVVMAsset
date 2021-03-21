@@ -6,10 +6,13 @@ import androidx.lifecycle.viewModelScope
 import com.asset.mvvmasset.data.model.MoviesResponse
 import com.asset.mvvmasset.data.util.Resource
 import com.asset.mvvmasset.domain.usecase.GetPopularMoviesUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MoviesViewModel(
+@HiltViewModel
+class MoviesViewModel @Inject constructor(
     private val getPopularMoviesUseCase: GetPopularMoviesUseCase
 ) : ViewModel() {
     val popularMovies: MutableLiveData<Resource<MoviesResponse>> = MutableLiveData()

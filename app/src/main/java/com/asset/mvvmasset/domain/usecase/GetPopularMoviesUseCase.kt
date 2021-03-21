@@ -1,8 +1,9 @@
 package com.asset.mvvmasset.domain.usecase
 
 import com.asset.mvvmasset.domain.repository.MoviesRepository
+import javax.inject.Inject
 
-class GetPopularMoviesUseCase(private val moviesRepository: MoviesRepository) {
+class GetPopularMoviesUseCase @Inject constructor(private val moviesRepository: MoviesRepository) {
     suspend fun execute(
         language: String? = null,
         page: Int? = null,

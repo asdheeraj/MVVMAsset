@@ -4,8 +4,9 @@ import com.asset.mvvmasset.data.api.MoviesApiService
 import com.asset.mvvmasset.data.model.MoviesResponse
 import com.asset.mvvmasset.data.repository.dataSource.MoviesRemoteDataSource
 import retrofit2.Response
+import javax.inject.Inject
 
-class MoviesRemoteDataSourceImpl(
+class MoviesRemoteDataSourceImpl @Inject constructor(
     private val moviesApiService: MoviesApiService
 ) : MoviesRemoteDataSource {
     override suspend fun getPopularMovies(

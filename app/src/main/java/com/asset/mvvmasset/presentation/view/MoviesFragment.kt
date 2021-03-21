@@ -12,7 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.asset.mvvmasset.R
 import com.asset.mvvmasset.databinding.FragmentMoviesBinding
 import com.asset.mvvmasset.presentation.viewmodel.MoviesViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MoviesFragment : Fragment() {
 
     private val moviesViewModel: MoviesViewModel by viewModels()
