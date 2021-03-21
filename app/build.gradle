@@ -91,5 +91,9 @@ dependencies {
   testImplementation(Dependencies.junit)
   androidTestImplementation(Dependencies.test_ext)
   androidTestImplementation(Dependencies.espresso_core)
+  testImplementation(Dependencies.mockwebserver)
+  androidTestImplementation(Dependencies.hilt_android_testing)
+  kaptAndroidTest(Dependencies.hilt_compiler)
+  testImplementation(Dependencies.truth)
   // endregion testing
 }

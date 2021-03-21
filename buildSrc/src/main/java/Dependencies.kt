@@ -41,6 +41,8 @@ object Versions {
     const val junit = "4.13.2"
     const val test_ext = "1.1.2"
     const val espresso_core = "3.3.0"
+    const val mockWebServer = "4.9.0"
+    const val truth = "1.1.2"
     // endregion Testing
 }
 
@@ -93,6 +95,8 @@ object Dependencies {
     const val junit = "junit:junit:${Versions.junit}"
     const val test_ext = "androidx.test.ext:junit:${Versions.test_ext}"
     const val espresso_core = "androidx.test.espresso:espresso-core:${Versions.espresso_core}"
-
+    const val mockwebserver = "com.squareup.okhttp3:mockwebserver:${Versions.mockWebServer}"
+    const val hilt_android_testing = "com.google.dagger:hilt-android-testing:${Versions.hilt}"
+    const val truth = "com.google.truth:truth:${Versions.truth}"
     // endregion Testing
 }
