@@ -5,8 +5,9 @@ import com.asset.mvvmasset.data.repository.dataSource.MoviesRemoteDataSource
 import com.asset.mvvmasset.data.util.Resource
 import com.asset.mvvmasset.domain.repository.MoviesRepository
 import retrofit2.Response
+import javax.inject.Inject
 
-class MoviesRepoImpl(
+class MoviesRepoImpl @Inject constructor(
     private val moviesRemoteDataSource: MoviesRemoteDataSource
 ) : MoviesRepository {
 
