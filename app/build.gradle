@@ -1,6 +1,7 @@
 plugins {
   id 'com.android.application'
   id 'kotlin-android'
+  id 'kotlin-kapt'
 }
 
 android {
@@ -33,12 +34,51 @@ android {
 }
 
 dependencies {
+  // region Kotlin
   implementation(Dependencies.kotlin_library)
   implementation(Dependencies.core_ktx)
+  // endregion Kotlin
+
+  // region UI
   implementation(Dependencies.app_compat)
   implementation(Dependencies.material)
   implementation(Dependencies.constraint_layout)
+  implementation(Dependencies.lifecycleCommon)
+  implementation(Dependencies.lifeCycleExtensions)
+  implementation(Dependencies.lifeCycleRunTime)
+  implementation(Dependencies.liveData)
+  implementation(Dependencies.navigation_fragment)
+  implementation(Dependencies.navigation_ui)
+  implementation(Dependencies.fragment_ktx)
+  // endregion UI
+
+  // region Network Layer
+  implementation(Dependencies.retrofit)
+  implementation(Dependencies.gson)
+  implementation(Dependencies.gson_converter)
+  implementation(Dependencies.okhttp3_interceptor)
+  // endregion Network Layer
+
+  // region Asynchronous Programming
+  implementation(Dependencies.coroutines)
+  // endregion Asynchronous Programming
+
+  // region Local Database
+  implementation(Dependencies.room)
+  implementation(Dependencies.room_compiler)
+  kapt(Dependencies.room_ktx)
+  // endregion Local Database
+
+  // region Dependency Injection
+  implementation(Dependencies.hilt_version)
+  kapt(Dependencies.hilt_compiler)
+  implementation(Dependencies.hilt_viewmodels)
+  kapt(Dependencies.hilt_viewmodels_compiler)
+  // endregion Dependency Injection
+
+  // region testing
   testImplementation(Dependencies.junit)
   androidTestImplementation(Dependencies.test_ext)
   androidTestImplementation(Dependencies.espresso_core)
+  // endregion testing
 }
