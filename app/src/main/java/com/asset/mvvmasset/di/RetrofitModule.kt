@@ -1,5 +1,6 @@
 package com.asset.mvvmasset.di
 
+import com.asset.mvvmasset.BuildConfig
 import com.asset.mvvmasset.data.api.MoviesApiService
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -23,7 +24,7 @@ object RetrofitModule {
     @Provides
     fun provideRetrofit(gson: Gson): Retrofit.Builder {
         return Retrofit.Builder()
-            .baseUrl("https://open-api.xyz/placeholder/")
+            .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create(gson))
     }
 
