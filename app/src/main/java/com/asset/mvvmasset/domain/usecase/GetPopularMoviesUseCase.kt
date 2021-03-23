@@ -11,10 +11,6 @@ class GetPopularMoviesUseCase @Inject constructor(private val moviesRepository: 
         page: Int? = null,
         region: String? = null
     ): Resource<MoviesResponse> {
-        return try {
-            moviesRepository.getPopularMovies(language, page, region)
-        } catch (e: Exception) {
-            Resource.Error(message = e.message ?: "Invalid Exception thrown")
-        }
+        return moviesRepository.getPopularMovies(language, page, region)
     }
 }

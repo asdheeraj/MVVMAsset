@@ -28,7 +28,7 @@ class MoviesViewModel @Inject constructor(
         page: Int? = null,
         region: String? = null
     ) = viewModelScope.launch(dispatcher) {
-        popularMovies.apply {
+        with(popularMovies) {
             postValue(Resource.Loading())
             postValue(getPopularMoviesUseCase.execute(language, page, region))
         }

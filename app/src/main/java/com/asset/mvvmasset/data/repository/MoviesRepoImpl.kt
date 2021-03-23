@@ -4,7 +4,6 @@ import com.asset.mvvmasset.data.model.MoviesResponse
 import com.asset.mvvmasset.data.repository.dataSource.MoviesRemoteDataSource
 import com.asset.mvvmasset.data.util.Resource
 import com.asset.mvvmasset.domain.repository.MoviesRepository
-import retrofit2.Response
 import javax.inject.Inject
 
 class MoviesRepoImpl @Inject constructor(
@@ -16,17 +15,6 @@ class MoviesRepoImpl @Inject constructor(
         page: Int?,
         region: String?
     ): Resource<MoviesResponse> {
-        return responseToResource(moviesRemoteDataSource.getPopularMovies(language, page, region))
-    }
-
-    private fun responseToResource(
-        response: Response<MoviesResponse>
-    ): Resource<MoviesResponse> {
-        if (response.isSuccessful) {
-            return response.body()?.let { movies ->
-                Resource.Success(movies)
-            } ?: Resource.Error(response.message())
-        }
-        return Resource.Error(response.message())
+        return moviesRemoteDataSource.getPopularMovies(language, page, region)
     }
 }

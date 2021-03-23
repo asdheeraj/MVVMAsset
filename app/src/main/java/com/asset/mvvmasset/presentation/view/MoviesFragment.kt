@@ -53,14 +53,13 @@ class MoviesFragment : Fragment() {
                     Log.d("Response: ", moviesResponse.data?.toString() ?: "")
                 }
                 is Resource.Loading -> {
-                   showProgressBar()
+                    showProgressBar()
                 }
                 is Resource.Error -> {
                     hideProgressBar()
                     Toast.makeText(activity, moviesResponse.message ?: "", Toast.LENGTH_LONG).show()
                 }
             }
-
         })
     }
 
